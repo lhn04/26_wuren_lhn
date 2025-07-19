@@ -1,0 +1,13 @@
+<launch>
+    <!-- 加载参数 -->
+    <rosparam file="$(find turtle_control)/config/params.yaml" command="load" />
+
+    <!-- 启动 turtlesim 模拟器 -->
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" />
+
+    <!-- 启动速度发布节点 -->
+    <node pkg="turtle_control" type="turtle_speed_publisher.py" name="speed_publisher" output="screen" />
+
+    <!-- 启动控制器节点 -->
+    <node pkg="turtle_control" type="turtle_controller" name="controller" output="screen" />
+</launch>
